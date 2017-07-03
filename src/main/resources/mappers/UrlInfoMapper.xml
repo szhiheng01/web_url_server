@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creditease.mybaties.dao.UrlInfoMapper">
+  <resultMap id="BaseResultMap" type="com.creditease.mybaties.model.UrlInfoModel">
+    <id column="url_id" jdbcType="INTEGER" property="urlId" />
+    <result column="project_name" jdbcType="VARCHAR" property="projectName" />
+    <result column="url_name" jdbcType="VARCHAR" property="urlName" />
+    <result column="contextType" jdbcType="VARCHAR" property="contexttype" />
+    <result column="request_method" jdbcType="VARCHAR" property="requestMethod" />
+    <result column="transfer_method" jdbcType="VARCHAR" property="transferMethod" />
+    <result column="creatTime" jdbcType="TIMESTAMP" property="creattime" />
+    <result column="updateime" jdbcType="TIMESTAMP" property="updateime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    url_id, project_name, url_name, contextType, request_method, transfer_method, creatTime, 
+    updateime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_creditease_urlInfo
+    where url_id = #{urlId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_creditease_urlInfo
+    where url_id = #{urlId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.creditease.mybaties.model.UrlInfoModel">
+    insert into t_creditease_urlInfo (url_id, project_name, url_name, 
+      contextType, request_method, transfer_method, 
+      creatTime, updateime)
+    values (#{urlId,jdbcType=INTEGER}, #{projectName,jdbcType=VARCHAR}, #{urlName,jdbcType=VARCHAR}, 
+      #{contexttype,jdbcType=VARCHAR}, #{requestMethod,jdbcType=VARCHAR}, #{transferMethod,jdbcType=VARCHAR}, 
+      #{creattime,jdbcType=TIMESTAMP}, #{updateime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.creditease.mybaties.model.UrlInfoModel">
+    insert into t_creditease_urlInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="urlId != null">
+        url_id,
+      </if>
+      <if test="projectName != null">
+        project_name,
+      </if>
+      <if test="urlName != null">
+        url_name,
+      </if>
+      <if test="contexttype != null">
+        contextType,
+      </if>
+      <if test="requestMethod != null">
+        request_method,
+      </if>
+      <if test="transferMethod != null">
+        transfer_method,
+      </if>
+      <if test="creattime != null">
+        creatTime,
+      </if>
+      <if test="updateime != null">
+        updateime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="urlId != null">
+        #{urlId,jdbcType=INTEGER},
+      </if>
+      <if test="projectName != null">
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="urlName != null">
+        #{urlName,jdbcType=VARCHAR},
+      </if>
+      <if test="contexttype != null">
+        #{contexttype,jdbcType=VARCHAR},
+      </if>
+      <if test="requestMethod != null">
+        #{requestMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="transferMethod != null">
+        #{transferMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null">
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateime != null">
+        #{updateime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.creditease.mybaties.model.UrlInfoModel">
+    update t_creditease_urlInfo
+    <set>
+      <if test="projectName != null">
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="urlName != null">
+        url_name = #{urlName,jdbcType=VARCHAR},
+      </if>
+      <if test="contexttype != null">
+        contextType = #{contexttype,jdbcType=VARCHAR},
+      </if>
+      <if test="requestMethod != null">
+        request_method = #{requestMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="transferMethod != null">
+        transfer_method = #{transferMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null">
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateime != null">
+        updateime = #{updateime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where url_id = #{urlId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.creditease.mybaties.model.UrlInfoModel">
+    update t_creditease_urlInfo
+    set project_name = #{projectName,jdbcType=VARCHAR},
+      url_name = #{urlName,jdbcType=VARCHAR},
+      contextType = #{contexttype,jdbcType=VARCHAR},
+      request_method = #{requestMethod,jdbcType=VARCHAR},
+      transfer_method = #{transferMethod,jdbcType=VARCHAR},
+      creatTime = #{creattime,jdbcType=TIMESTAMP},
+      updateime = #{updateime,jdbcType=TIMESTAMP}
+    where url_id = #{urlId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creditease.mybaties.dao.ParameterMapper">
+  <resultMap id="BaseResultMap" type="com.creditease.mybaties.model.ParameterModel">
+    <id column="parameter_id" jdbcType="INTEGER" property="parameterId" />
+    <result column="url_id" jdbcType="INTEGER" property="urlId" />
+    <result column="creditTime" jdbcType="TIMESTAMP" property="credittime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.creditease.mybaties.model.ParameterModel">
+    <result column="parameter" jdbcType="LONGVARCHAR" property="parameter" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    parameter_id, url_id, creditTime, updateTime
+  </sql>
+  <sql id="Blob_Column_List">
+    parameter
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_creditease_parameter
+    where parameter_id = #{parameterId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_creditease_parameter
+    where parameter_id = #{parameterId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.creditease.mybaties.model.ParameterModel">
+    insert into t_creditease_parameter (parameter_id, url_id, creditTime, 
+      updateTime, parameter)
+    values (#{parameterId,jdbcType=INTEGER}, #{urlId,jdbcType=INTEGER}, #{credittime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{parameter,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.creditease.mybaties.model.ParameterModel">
+    insert into t_creditease_parameter
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="parameterId != null">
+        parameter_id,
+      </if>
+      <if test="urlId != null">
+        url_id,
+      </if>
+      <if test="credittime != null">
+        creditTime,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+      <if test="parameter != null">
+        parameter,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="parameterId != null">
+        #{parameterId,jdbcType=INTEGER},
+      </if>
+      <if test="urlId != null">
+        #{urlId,jdbcType=INTEGER},
+      </if>
+      <if test="credittime != null">
+        #{credittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parameter != null">
+        #{parameter,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.creditease.mybaties.model.ParameterModel">
+    update t_creditease_parameter
+    <set>
+      <if test="urlId != null">
+        url_id = #{urlId,jdbcType=INTEGER},
+      </if>
+      <if test="credittime != null">
+        creditTime = #{credittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parameter != null">
+        parameter = #{parameter,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where parameter_id = #{parameterId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.creditease.mybaties.model.ParameterModel">
+    update t_creditease_parameter
+    set url_id = #{urlId,jdbcType=INTEGER},
+      creditTime = #{credittime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      parameter = #{parameter,jdbcType=LONGVARCHAR}
+    where parameter_id = #{parameterId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.creditease.mybaties.model.ParameterModel">
+    update t_creditease_parameter
+    set url_id = #{urlId,jdbcType=INTEGER},
+      creditTime = #{credittime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where parameter_id = #{parameterId,jdbcType=INTEGER}
+  </update>
+</mapper>
