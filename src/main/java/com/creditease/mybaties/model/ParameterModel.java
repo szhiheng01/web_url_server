@@ -52,4 +52,15 @@ public class ParameterModel {
     public void setParameter(String parameter) {
         this.parameter = parameter == null ? null : parameter.trim();
     }
+
+    @Override
+    public String toString() {
+        return "ParameterModel{" +
+                "parameterId=" + parameterId +
+                ", urlId=" + urlId +
+                ", credittime=" + credittime +
+                ", updatetime=" + updatetime +
+                ", parameter='" + parameter + '\'' +
+                '}';
+    }
 }

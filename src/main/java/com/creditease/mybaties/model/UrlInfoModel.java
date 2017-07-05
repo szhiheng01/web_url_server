@@ -82,4 +82,18 @@ public class UrlInfoModel {
     public void setUpdateime(Date updateime) {
         this.updateime = updateime;
     }
+
+    @Override
+    public String toString() {
+        return "UrlInfoModel{" +
+                "urlId=" + urlId +
+                ", projectName='" + projectName + '\'' +
+                ", urlName='" + urlName + '\'' +
+                ", contexttype='" + contexttype + '\'' +
+                ", requestMethod='" + requestMethod + '\'' +
+                ", transferMethod='" + transferMethod + '\'' +
+                ", creattime=" + creattime +
+                ", updateime=" + updateime +
+                '}';
+    }
 }

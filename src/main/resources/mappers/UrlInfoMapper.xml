@@ -21,6 +21,12 @@
     from t_creditease_urlInfo
     where url_id = #{urlId,jdbcType=INTEGER}
   </select>
+  <select id="selectByProjectName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_creditease_urlInfo
+    where projectName = #{projectName}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_creditease_urlInfo
     where url_id = #{urlId,jdbcType=INTEGER}
