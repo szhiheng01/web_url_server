@@ -61,13 +61,10 @@ public class OperationUrlController {
         String res="";
         logger.info("requestBody = " + requestBody);
         if (requestBody ==null || requestBody.length() ==0){
-            logger.info("requestBody = " + requestBody);
             return  requestBody;
         }
-        logger.info("requestBody = " + requestBody);
         ObjectMapper mapper = new ObjectMapper();
         ResoultInfos resoultInfos = new ResoultInfos();
-
         try {
             UrlInfoModel urlInfoModel = mapper.readValue(requestBody,UrlInfoModel.class);
             resoultInfos = operationUrlService.selectByProjectName(urlInfoModel);
@@ -75,7 +72,6 @@ public class OperationUrlController {
         }catch (Exception e){
             logger.info("e = " + e);
         }
-
         try {
             res= mapper.writeValueAsString(resoultInfos);
             logger.info("res = " + res);

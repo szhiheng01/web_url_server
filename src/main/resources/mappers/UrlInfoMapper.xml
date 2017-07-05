@@ -21,11 +21,11 @@
     from t_creditease_urlInfo
     where url_id = #{urlId,jdbcType=INTEGER}
   </select>
-  <select id="selectByProjectName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByProjectName" parameterType="string" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_creditease_urlInfo
-    where projectName = #{projectName}
+    where project_name LIKE #{projectName,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_creditease_urlInfo
@@ -35,7 +35,7 @@
     insert into t_creditease_urlInfo (url_id, project_name, url_name, 
       contextType, request_method, transfer_method, 
       creatTime, updateime)
-    values (#{urlId,jdbcType=INTEGER}, #{projectName,jdbcType=VARCHAR}, #{urlName,jdbcType=VARCHAR}, 
+    values (#{urlId,jdbcType=INTEGER}, #{projectName,jdbcType=VARCHAR}, #{urlName,jdbcType=VARCHAR},
       #{contexttype,jdbcType=VARCHAR}, #{requestMethod,jdbcType=VARCHAR}, #{transferMethod,jdbcType=VARCHAR}, 
       #{creattime,jdbcType=TIMESTAMP}, #{updateime,jdbcType=TIMESTAMP})
   </insert>

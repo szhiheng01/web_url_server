@@ -99,29 +99,28 @@ public class OperationUrlServiceImpl implements OperationUrlService {
     public ResoultInfos selectByProjectName(UrlInfoModel urlInfoModel) {
 
         ResoultInfos resoultInfos = null;
-
+        boolean flag = true;
         try {
+            if (urlInfoModel == null || StringUtils.isBlank(urlInfoModel.getProjectName()))
+                flag = false;
             List<UrlInfoModel> selectProjectList = urlInfoMapper.selectByProjectName(urlInfoModel.getProjectName());
             if (selectProjectList.size() == 0 || selectProjectList.isEmpty()) {
+               flag = false;
+            }
+            if (flag){
+                resoultInfos.setCode(0);
+                resoultInfos.setMessage("查询成功～～");
+                resoultInfos.setStatus("true");
+                resoultInfos.setList(selectProjectList);
+            }else {
                 resoultInfos.setCode(0);
                 resoultInfos.setMessage("查询为空～～");
                 resoultInfos.setStatus("false");
-                resoultInfos.setList(null);
-
-            } else {
-                resoultInfos.setCode(0);
-                resoultInfos.setMessage("查询为空～～");
-                resoultInfos.setStatus("true");
-                resoultInfos.setList(selectProjectList);
             }
         } catch (Exception e) {
-            resoultInfos.setCode(0);
-            resoultInfos.setMessage("查询为空～～");
-            resoultInfos.setStatus("false");
-            logger.info("c查询异常～～");
+            e.printStackTrace();
         }
         return resoultInfos;
     }
-
 
 }

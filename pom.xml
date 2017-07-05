@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- spring版本号 -->
-        <spring.version>4.2.5.RELEASE</spring.version>
+        <spring.version>4.2.4.RELEASE</spring.version>
         <!-- mybatis版本号 -->
         <mybatis.version>3.2.8</mybatis.version>
         <!-- log4j日志包版本号 -->
@@ -133,6 +133,12 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>1.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.4.Final</version>
         </dependency>
 
         <!-- 添加数据库连接池依赖 -->

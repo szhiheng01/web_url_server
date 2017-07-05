@@ -1,5 +1,7 @@
 package com.creditease.mybaties.model;
 
+import org.springframework.stereotype.Service;
+
 import java.util.Date;
 
 public class UrlInfoModel {

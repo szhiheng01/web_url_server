@@ -1,8 +1,11 @@
 package com.creditease.mybaties.dao;
 
 import com.creditease.mybaties.model.ParameterModel;
-
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+@Repository
 public interface ParameterMapper {
+
     int deleteByPrimaryKey(Integer parameterId);
 
     int insert(ParameterModel record);
