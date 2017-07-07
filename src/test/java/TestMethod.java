@@ -1,7 +1,5 @@
-import com.creditease.mybaties.Utils.ResoultInfo;
-import com.creditease.mybaties.dao.UrlInfoMapper;
-import com.creditease.mybaties.model.UrlInfoModel;
-import com.creditease.mybaties.service.OperationUrlService;
+import com.thrift.mybaties.dao.UrlInfoMapper;
+import com.thrift.mybaties.model.UrlInfoModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,7 @@ import java.util.List;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:ApplicationContext/ApplicationContext.xml", "classpath:ApplicationContext/Spring-mybaties.xml"})
+@ContextConfiguration(locations = {"classpath:ApplicationContext/ApplicationContext.xml"})
 public class TestMethod {
 
     @Autowired

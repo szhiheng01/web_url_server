@@ -1,17 +1,15 @@
-package com.creditease.mybaties.Utils;
+package com.thrift.mybaties.Utils;
 
 import java.util.List;
-import java.util.*;
 
 /**
- * Created by songzhiheng on 2017/7/3.
+ * Created by songzhiheng on 2017/6/29.
  */
-public class ResoultInfos {
+public class ResoultInfo {
 
     private int code;
     private String message;
     private String status;
-    private List<?> list;
 
     public int getCode() {
         return code;
@@ -37,11 +35,12 @@ public class ResoultInfos {
         this.status = status;
     }
 
-    public List<?> getList() {
-        return list;
-    }
-
-    public void setList(List<?> list) {
-        this.list = list;
+    @Override
+    public String toString() {
+        return "ResoultInfo{" +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

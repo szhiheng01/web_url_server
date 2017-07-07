@@ -1,4 +1,4 @@
-package com.creditease.mybaties.Utils;
+package com.thrift.mybaties.Utils;
 
 import jxl.Cell;
 import jxl.Sheet;

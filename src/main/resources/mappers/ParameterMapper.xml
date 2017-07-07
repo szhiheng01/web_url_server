@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.creditease.mybaties.dao.ParameterMapper">
-  <resultMap id="BaseResultMap" type="com.creditease.mybaties.model.ParameterModel">
+<mapper namespace="com.thrift.mybaties.dao.ParameterMapper">
+  <resultMap id="BaseResultMap" type="com.thrift.mybaties.model.ParameterModel">
     <id column="parameter_id" jdbcType="INTEGER" property="parameterId" />
     <result column="url_id" jdbcType="INTEGER" property="urlId" />
     <result column="creditTime" jdbcType="TIMESTAMP" property="credittime" />
     <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.creditease.mybaties.model.ParameterModel">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.thrift.mybaties.model.ParameterModel">
     <result column="parameter" jdbcType="LONGVARCHAR" property="parameter" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -28,13 +28,13 @@
     delete from t_creditease_parameter
     where parameter_id = #{parameterId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.creditease.mybaties.model.ParameterModel">
+  <insert id="insert" parameterType="com.thrift.mybaties.model.ParameterModel">
     insert into t_creditease_parameter (parameter_id, url_id, creditTime, 
       updateTime, parameter)
     values (#{parameterId,jdbcType=INTEGER}, #{urlId,jdbcType=INTEGER}, #{credittime,jdbcType=TIMESTAMP}, 
       #{updatetime,jdbcType=TIMESTAMP}, #{parameter,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.creditease.mybaties.model.ParameterModel">
+  <insert id="insertSelective" parameterType="com.thrift.mybaties.model.ParameterModel">
     insert into t_creditease_parameter
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="parameterId != null">
@@ -71,7 +71,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.creditease.mybaties.model.ParameterModel">
+  <update id="updateByPrimaryKeySelective" parameterType="com.thrift.mybaties.model.ParameterModel">
     update t_creditease_parameter
     <set>
       <if test="urlId != null">
@@ -89,7 +89,7 @@
     </set>
     where parameter_id = #{parameterId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.creditease.mybaties.model.ParameterModel">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.thrift.mybaties.model.ParameterModel">
     update t_creditease_parameter
     set url_id = #{urlId,jdbcType=INTEGER},
       creditTime = #{credittime,jdbcType=TIMESTAMP},
@@ -97,7 +97,7 @@
       parameter = #{parameter,jdbcType=LONGVARCHAR}
     where parameter_id = #{parameterId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.creditease.mybaties.model.ParameterModel">
+  <update id="updateByPrimaryKey" parameterType="com.thrift.mybaties.model.ParameterModel">
     update t_creditease_parameter
     set url_id = #{urlId,jdbcType=INTEGER},
       creditTime = #{credittime,jdbcType=TIMESTAMP},

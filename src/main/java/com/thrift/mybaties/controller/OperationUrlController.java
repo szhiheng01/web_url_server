@@ -1,10 +1,9 @@
-package com.creditease.mybaties.controller;
+package com.thrift.mybaties.controller;
 
-import com.creditease.mybaties.Utils.ResoultInfo;
-import com.creditease.mybaties.Utils.ResoultInfos;
-import com.creditease.mybaties.dao.UrlInfoMapper;
-import com.creditease.mybaties.model.UrlInfoModel;
-import com.creditease.mybaties.service.OperationUrlService;
+import com.thrift.mybaties.Utils.ResoultInfo;
+import com.thrift.mybaties.Utils.ResoultInfos;
+import com.thrift.mybaties.model.UrlInfoModel;
+import com.thrift.mybaties.service.OperationUrlService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
@@ -42,7 +41,7 @@ public class OperationUrlController {
             resoultInfo = operationUrlService.insertUrl(urlInfoModel);
             logger.info("resoultInfo" + resoultInfo);
         }catch (IOException e){
-            logger.info(e);
+            e.printStackTrace();
         }
         logger.info("resoultInfo = " + resoultInfo.toString());
         try {

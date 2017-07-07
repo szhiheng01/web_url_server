@@ -1,4 +1,4 @@
-package com.creditease.mybaties.model;
+package com.thrift.mybaties.model;
 
 import org.springframework.stereotype.Service;
 

@@ -1,10 +1,10 @@
-package com.creditease.mybaties.service.Impl;
+package com.thrift.mybaties.service.Impl;
 
-import com.creditease.mybaties.Utils.ResoultInfo;
-import com.creditease.mybaties.Utils.ResoultInfos;
-import com.creditease.mybaties.dao.UrlInfoMapper;
-import com.creditease.mybaties.model.UrlInfoModel;
-import com.creditease.mybaties.service.OperationUrlService;
+import com.thrift.mybaties.Utils.ResoultInfo;
+import com.thrift.mybaties.Utils.ResoultInfos;
+import com.thrift.mybaties.dao.UrlInfoMapper;
+import com.thrift.mybaties.model.UrlInfoModel;
+import com.thrift.mybaties.service.OperationUrlService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,26 +72,27 @@ public class OperationUrlServiceImpl implements OperationUrlService {
             if (urlInfoModel == null || StringUtils.isBlank(urlInfoModel.getProjectName()) || StringUtils.isBlank(urlInfoModel.getUrlName())) {
                 flag = false;
             } else {
-                if (urlInfoModel.getCreattime() == null && urlInfoModel.getUpdateime() == null)
+                if (urlInfoModel.getCreattime() == null || urlInfoModel.getUpdateime() == null){
                     urlInfoModel.setCreattime(new Date());
                     urlInfoModel.setUpdateime(new Date());
+                }
                 insertCount = urlInfoMapper.insert(urlInfoModel);
                 logger.info("insertCount = " + insertCount);
                 if (insertCount == 0) {
                     flag = false;
                 }
-                if (flag) {
-                    resoultInfo.setCode(1);
-                    resoultInfo.setStatus("true");
-                    resoultInfo.setMessage("插入成功～～");
-                } else {
-                    resoultInfo.setCode(0);
-                    resoultInfo.setStatus("false");
-                    resoultInfo.setMessage("插入失败～～");
-                }
+            }
+            if (flag) {
+                resoultInfo.setCode(1);
+                resoultInfo.setStatus("true");
+                resoultInfo.setMessage("插入成功～～");
+            } else {
+                resoultInfo.setCode(0);
+                resoultInfo.setStatus("false");
+                resoultInfo.setMessage("插入失败～～");
             }
         } catch (Exception e) {
-            flag = false;
+            e.printStackTrace();
         }
         return resoultInfo;
     }

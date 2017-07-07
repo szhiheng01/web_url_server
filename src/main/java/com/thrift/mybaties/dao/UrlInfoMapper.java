@@ -1,8 +1,7 @@
-package com.creditease.mybaties.dao;
+package com.thrift.mybaties.dao;
 
-import com.creditease.mybaties.model.UrlInfoModel;
+import com.thrift.mybaties.model.UrlInfoModel;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Repository

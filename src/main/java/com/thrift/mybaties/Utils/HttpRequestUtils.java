@@ -1,4 +1,4 @@
-package com.creditease.mybaties.Utils;
+package com.thrift.mybaties.Utils;
 
 import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;

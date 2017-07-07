@@ -18,7 +18,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:ApplicationContext/Spring-mybaties.xml</param-value>
+        <param-value>classpath:ApplicationContext/ApplicationContext.xml</param-value>
     </context-param>
 
     <context-param>

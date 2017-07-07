@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.creditease.mybaties.dao.UrlInfoMapper">
-  <resultMap id="BaseResultMap" type="com.creditease.mybaties.model.UrlInfoModel">
+<mapper namespace="com.thrift.mybaties.dao.UrlInfoMapper">
+  <resultMap id="BaseResultMap" type="com.thrift.mybaties.model.UrlInfoModel">
     <id column="url_id" jdbcType="INTEGER" property="urlId" />
     <result column="project_name" jdbcType="VARCHAR" property="projectName" />
     <result column="url_name" jdbcType="VARCHAR" property="urlName" />
@@ -31,7 +31,7 @@
     delete from t_creditease_urlInfo
     where url_id = #{urlId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.creditease.mybaties.model.UrlInfoModel">
+  <insert id="insert" parameterType="com.thrift.mybaties.model.UrlInfoModel">
     insert into t_creditease_urlInfo (url_id, project_name, url_name, 
       contextType, request_method, transfer_method, 
       creatTime, updateime)
@@ -39,7 +39,7 @@
       #{contexttype,jdbcType=VARCHAR}, #{requestMethod,jdbcType=VARCHAR}, #{transferMethod,jdbcType=VARCHAR}, 
       #{creattime,jdbcType=TIMESTAMP}, #{updateime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.creditease.mybaties.model.UrlInfoModel">
+  <insert id="insertSelective" parameterType="com.thrift.mybaties.model.UrlInfoModel">
     insert into t_creditease_urlInfo
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="urlId != null">
@@ -94,7 +94,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.creditease.mybaties.model.UrlInfoModel">
+  <update id="updateByPrimaryKeySelective" parameterType="com.thrift.mybaties.model.UrlInfoModel">
     update t_creditease_urlInfo
     <set>
       <if test="projectName != null">
@@ -121,7 +121,7 @@
     </set>
     where url_id = #{urlId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.creditease.mybaties.model.UrlInfoModel">
+  <update id="updateByPrimaryKey" parameterType="com.thrift.mybaties.model.UrlInfoModel">
     update t_creditease_urlInfo
     set project_name = #{projectName,jdbcType=VARCHAR},
       url_name = #{urlName,jdbcType=VARCHAR},

@@ -1,8 +1,8 @@
-package com.creditease.mybaties.dao;
+package com.thrift.mybaties.dao;
 
-import com.creditease.mybaties.model.ParameterModel;
+import com.thrift.mybaties.model.ParameterModel;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
+
 @Repository
 public interface ParameterMapper {
 
