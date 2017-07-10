@@ -17,10 +17,10 @@
     <mvc:annotation-driven></mvc:annotation-driven>
 
     <!-- 自动扫描-->
-    <context:component-scan base-package="com.creditease.mybaties" />
+    <context:component-scan base-package="com.thrift.mybaties"/>
 
     <!-- 自动扫描  @Controller-->
-    <context:component-scan base-package="com.creditease.mybaties.controller"/>
+    <context:component-scan base-package="com.thrift.mybaties.controller"/>
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"
@@ -45,8 +45,8 @@
     <!-- 视图解析器 -->
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="WEB-INF/page/" />
-        <property name="suffix" value=".jsp" />
+        <property name="prefix" value="WEB-INF/page/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <!-- 文件上传配置 -->
@@ -57,10 +57,6 @@
         <property name="maxUploadSize" value="32505856"/>
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="4096"/>
-    </bean>
-
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:ApplicationContext/jdbc.properties"/>
     </bean>
 
 
@@ -80,6 +76,10 @@
     -->
 
     <!-- 配置数据源 -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:ApplicationContext/jdbc.properties"/>
+    </bean>
+
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <property name="driverClassName" value="${driver}"/>
@@ -107,7 +107,7 @@
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.creditease.mybaties.dao"/>
+        <property name="basePackage" value="com.thrift.mybaties.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 
