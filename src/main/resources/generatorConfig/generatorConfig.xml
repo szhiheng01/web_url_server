@@ -12,14 +12,14 @@
 		</commentGenerator>
 		<!--数据库链接地址账号密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:Mysql://47.93.192.164:3306/mybatis?characterEncoding=utf8"
+			connectionURL="jdbc:Mysql://47.93.192.164:3306/url_web_server?characterEncoding=utf8"
 			userId="root" password="root">
 		</jdbcConnection>
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 		<!--生成Model类存放位置 -->
-		<javaModelGenerator targetPackage="com.creditease.mybaties.model"
+		<javaModelGenerator targetPackage="com.thrift.mybaties.model"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
@@ -31,16 +31,12 @@
 		</sqlMapGenerator>
 		<!--生成Dao类存放位置 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.creditease.mybaties.dao" targetProject="src/main/java">
+			targetPackage="com.thrift.mybaties.dao" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!--生成对应表及类名 -->
-		<table tableName="t_creditease_parameter" domainObjectName="Parameter"
-			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false"></table>
 
-		<table tableName="t_creditease_urlInfo" domainObjectName="UrlInfo"
+		<table tableName="t_thrift_urlInfo" domainObjectName="UrlInfo"
 			   enableCountByExample="false" enableUpdateByExample="false"
 			   enableDeleteByExample="false" enableSelectByExample="false"
 			   selectByExampleQueryId="false"></table>

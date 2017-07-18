@@ -1,7 +1,6 @@
 package com.thrift.mybaties.service;
 
 import com.thrift.mybaties.Utils.ResoultInfo;
-import com.thrift.mybaties.Utils.ResoultInfos;
 import com.thrift.mybaties.model.UrlInfoModel;
 
 /**
@@ -10,8 +9,6 @@ import com.thrift.mybaties.model.UrlInfoModel;
 public interface OperationUrlService {
 
     ResoultInfo insertUrl(UrlInfoModel parameter);
-
-    ResoultInfos selectByProjectName(UrlInfoModel urlInfoModel);
 
 
 }

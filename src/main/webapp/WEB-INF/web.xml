@@ -7,6 +7,10 @@
 
     <display-name>web_url_server</display-name>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:ApplicationContext/ApplicationContext.xml</param-value>
+    </context-param>
     <!-- spring监听器 -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -16,17 +20,13 @@
         <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
 
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:ApplicationContext/ApplicationContext.xml</param-value>
-    </context-param>
 
     <context-param>
         <param-name>log4jConfigLocation</param-name>
         <param-value>classpath:log4j.properties</param-value>
     </context-param>
 
-    <!-- spring mvc servlet-->
+    <!-- 前端控制器-->
     <servlet>
         <servlet-name>web_url_server</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -34,6 +34,7 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:ApplicationContext/ApplicationContext.xml</param-value>
         </init-param>
+        <!--tomcat启动时就加载-->
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
     </servlet>
@@ -43,7 +44,7 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!-- 编码过滤器 -->
+    <!-- post请求编码过滤器 -->
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

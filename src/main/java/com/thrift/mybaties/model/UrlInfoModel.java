@@ -1,48 +1,43 @@
 package com.thrift.mybaties.model;
 
-import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
 public class UrlInfoModel {
-    private Integer urlId;
+    private Integer id;
 
-    private String projectName;
+    private String projectname;
 
-    private String urlName;
+    private String urlname;
 
     private String contexttype;
 
-    private String requestMethod;
+    private String requestmethod;
 
-    private String transferMethod;
+    private String transfermethod;
 
     private Date creattime;
 
     private Date updateime;
 
-    public Integer getUrlId() {
-        return urlId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUrlId(Integer urlId) {
-        this.urlId = urlId;
+    public String getProjectname() {
+        return projectname;
     }
 
-    public String getProjectName() {
-        return projectName;
+    public void setProjectname(String projectname) {
+        this.projectname = projectname == null ? null : projectname.trim();
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName == null ? null : projectName.trim();
+    public String getUrlname() {
+        return urlname;
     }
 
-    public String getUrlName() {
-        return urlName;
-    }
-
-    public void setUrlName(String urlName) {
-        this.urlName = urlName == null ? null : urlName.trim();
+    public void setUrlname(String urlname) {
+        this.urlname = urlname == null ? null : urlname.trim();
     }
 
     public String getContexttype() {
@@ -53,20 +48,20 @@ public class UrlInfoModel {
         this.contexttype = contexttype == null ? null : contexttype.trim();
     }
 
-    public String getRequestMethod() {
-        return requestMethod;
+    public String getRequestmethod() {
+        return requestmethod;
     }
 
-    public void setRequestMethod(String requestMethod) {
-        this.requestMethod = requestMethod == null ? null : requestMethod.trim();
+    public void setRequestmethod(String requestmethod) {
+        this.requestmethod = requestmethod == null ? null : requestmethod.trim();
     }
 
-    public String getTransferMethod() {
-        return transferMethod;
+    public String getTransfermethod() {
+        return transfermethod;
     }
 
-    public void setTransferMethod(String transferMethod) {
-        this.transferMethod = transferMethod == null ? null : transferMethod.trim();
+    public void setTransfermethod(String transfermethod) {
+        this.transfermethod = transfermethod == null ? null : transfermethod.trim();
     }
 
     public Date getCreattime() {
@@ -83,19 +78,5 @@ public class UrlInfoModel {
 
     public void setUpdateime(Date updateime) {
         this.updateime = updateime;
-    }
-
-    @Override
-    public String toString() {
-        return "UrlInfoModel{" +
-                "urlId=" + urlId +
-                ", projectName='" + projectName + '\'' +
-                ", urlName='" + urlName + '\'' +
-                ", contexttype='" + contexttype + '\'' +
-                ", requestMethod='" + requestMethod + '\'' +
-                ", transferMethod='" + transferMethod + '\'' +
-                ", creattime=" + creattime +
-                ", updateime=" + updateime +
-                '}';
     }
 }

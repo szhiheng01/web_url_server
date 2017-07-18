@@ -1,21 +1,15 @@
 package com.thrift.mybaties.dao;
 
 import com.thrift.mybaties.model.UrlInfoModel;
-import org.springframework.stereotype.Repository;
 
-import java.util.List;
-@Repository
 public interface UrlInfoMapper {
-
-    int deleteByPrimaryKey(Integer urlId);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(UrlInfoModel record);
 
     int insertSelective(UrlInfoModel record);
 
-    List<UrlInfoModel> selectByProjectName(String projectName);
-
-    UrlInfoModel selectByPrimaryKey(Integer urlId);
+    UrlInfoModel selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(UrlInfoModel record);
 

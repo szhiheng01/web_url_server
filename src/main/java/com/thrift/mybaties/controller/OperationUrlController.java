@@ -41,6 +41,7 @@ public class OperationUrlController {
             resoultInfo = operationUrlService.insertUrl(urlInfoModel);
             logger.info("resoultInfo" + resoultInfo);
         }catch (IOException e){
+            logger.info("mapper转换失败！！！！");
             e.printStackTrace();
         }
         logger.info("resoultInfo = " + resoultInfo.toString());
@@ -52,34 +53,5 @@ public class OperationUrlController {
         }
         return res;
     }
-
-    @RequestMapping(value = "/selectUrl",method = RequestMethod.POST)
-    @ResponseBody
-    public String selectByProjectName(@RequestBody String requestBody){
-
-        String res="";
-        logger.info("requestBody = " + requestBody);
-        if (requestBody ==null || requestBody.length() ==0){
-            return  requestBody;
-        }
-        ObjectMapper mapper = new ObjectMapper();
-        ResoultInfos resoultInfos = new ResoultInfos();
-        try {
-            UrlInfoModel urlInfoModel = mapper.readValue(requestBody,UrlInfoModel.class);
-            resoultInfos = operationUrlService.selectByProjectName(urlInfoModel);
-            logger.info("resoultInfos = " + resoultInfos);
-        }catch (Exception e){
-            logger.info("e = " + e);
-        }
-        try {
-            res= mapper.writeValueAsString(resoultInfos);
-            logger.info("res = " + res);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return res;
-    }
-
-
 
 }

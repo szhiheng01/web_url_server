@@ -23,13 +23,8 @@ public class TestMethod {
     public void test() {
 
         UrlInfoModel urlInfoModel = new UrlInfoModel();
-        urlInfoModel.setProjectName("aaaa");
-        urlInfoModel.setUrlName("pppp");
-        List<UrlInfoModel> list = operationUrl.selectByProjectName(urlInfoModel.getProjectName());
-        for (UrlInfoModel urlInfo : list){
-            System.out.println("aaaaavbsfwfwefewfewfewfewfwefewfewfwefwef = " + urlInfo.toString());
-
-        }
+        urlInfoModel.setProjectname("aaaa");
+        urlInfoModel.setUrlname("pppp");
 
 
     }
