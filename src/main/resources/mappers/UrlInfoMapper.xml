@@ -5,36 +5,36 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="projectName" jdbcType="VARCHAR" property="projectname" />
     <result column="urlName" jdbcType="VARCHAR" property="urlname" />
-    <result column="contexttype" jdbcType="VARCHAR" property="contexttype" />
+    <result column="contextType" jdbcType="VARCHAR" property="contexttype" />
     <result column="requestMethod" jdbcType="VARCHAR" property="requestmethod" />
     <result column="transferMethod" jdbcType="VARCHAR" property="transfermethod" />
-    <result column="creattime" jdbcType="TIMESTAMP" property="creattime" />
-    <result column="updateime" jdbcType="TIMESTAMP" property="updateime" />
+    <result column="creatTime" jdbcType="TIMESTAMP" property="creattime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, projectName, urlName, contexttype, requestMethod, transferMethod, creattime, 
-    updateime
+    id, projectName, urlName, contextType, requestMethod, transferMethod, creatTime, 
+    updateTime
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from t_thrift_urlinfo
+    from t_web_urlInfo
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_thrift_urlinfo
+    delete from t_web_urlInfo
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.thrift.mybaties.model.UrlInfoModel">
-    insert into t_thrift_urlinfo (id, projectName, urlName, 
-      contexttype, requestMethod, transferMethod, 
-      creattime, updateime)
+    insert into t_web_urlInfo (id, projectName, urlName, 
+      contextType, requestMethod, transferMethod, 
+      creatTime, updateTime)
     values (#{id,jdbcType=INTEGER}, #{projectname,jdbcType=VARCHAR}, #{urlname,jdbcType=VARCHAR}, 
       #{contexttype,jdbcType=VARCHAR}, #{requestmethod,jdbcType=VARCHAR}, #{transfermethod,jdbcType=VARCHAR}, 
-      #{creattime,jdbcType=TIMESTAMP}, #{updateime,jdbcType=TIMESTAMP})
+      #{creattime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.thrift.mybaties.model.UrlInfoModel">
-    insert into t_thrift_urlinfo
+    insert into t_web_urlInfo
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -46,7 +46,7 @@
         urlName,
       </if>
       <if test="contexttype != null">
-        contexttype,
+        contextType,
       </if>
       <if test="requestmethod != null">
         requestMethod,
@@ -55,10 +55,10 @@
         transferMethod,
       </if>
       <if test="creattime != null">
-        creattime,
+        creatTime,
       </if>
-      <if test="updateime != null">
-        updateime,
+      <if test="updatetime != null">
+        updateTime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -83,13 +83,13 @@
       <if test="creattime != null">
         #{creattime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateime != null">
-        #{updateime,jdbcType=TIMESTAMP},
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.thrift.mybaties.model.UrlInfoModel">
-    update t_thrift_urlinfo
+    update t_web_urlInfo
     <set>
       <if test="projectname != null">
         projectName = #{projectname,jdbcType=VARCHAR},
@@ -98,7 +98,7 @@
         urlName = #{urlname,jdbcType=VARCHAR},
       </if>
       <if test="contexttype != null">
-        contexttype = #{contexttype,jdbcType=VARCHAR},
+        contextType = #{contexttype,jdbcType=VARCHAR},
       </if>
       <if test="requestmethod != null">
         requestMethod = #{requestmethod,jdbcType=VARCHAR},
@@ -107,23 +107,23 @@
         transferMethod = #{transfermethod,jdbcType=VARCHAR},
       </if>
       <if test="creattime != null">
-        creattime = #{creattime,jdbcType=TIMESTAMP},
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateime != null">
-        updateime = #{updateime,jdbcType=TIMESTAMP},
+      <if test="updatetime != null">
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.thrift.mybaties.model.UrlInfoModel">
-    update t_thrift_urlinfo
+    update t_web_urlInfo
     set projectName = #{projectname,jdbcType=VARCHAR},
       urlName = #{urlname,jdbcType=VARCHAR},
-      contexttype = #{contexttype,jdbcType=VARCHAR},
+      contextType = #{contexttype,jdbcType=VARCHAR},
       requestMethod = #{requestmethod,jdbcType=VARCHAR},
       transferMethod = #{transfermethod,jdbcType=VARCHAR},
-      creattime = #{creattime,jdbcType=TIMESTAMP},
-      updateime = #{updateime,jdbcType=TIMESTAMP}
+      creatTime = #{creattime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

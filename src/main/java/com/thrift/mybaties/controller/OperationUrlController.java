@@ -1,7 +1,6 @@
 package com.thrift.mybaties.controller;
 
 import com.thrift.mybaties.Utils.ResoultInfo;
-import com.thrift.mybaties.Utils.ResoultInfos;
 import com.thrift.mybaties.model.UrlInfoModel;
 import com.thrift.mybaties.service.OperationUrlService;
 import com.fasterxml.jackson.core.JsonProcessingException;

@@ -1,8 +1,11 @@
 package com.thrift.mybaties.dao;
 
 import com.thrift.mybaties.model.UrlInfoModel;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UrlInfoMapper {
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(UrlInfoModel record);

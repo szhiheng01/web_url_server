@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
-
 /**
  * Created by songzhiheng on 2017/7/5.
  */
@@ -25,6 +23,8 @@ public class TestMethod {
         UrlInfoModel urlInfoModel = new UrlInfoModel();
         urlInfoModel.setProjectname("aaaa");
         urlInfoModel.setUrlname("pppp");
+        int num = operationUrl.insert(urlInfoModel);
+        System.out.printf("num = " + num );
 
 
     }

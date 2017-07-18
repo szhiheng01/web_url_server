@@ -4,7 +4,7 @@
 		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
 	<!--数据库驱动 -->
-	<classPathEntry location="/Users/songzhiheng/.m2/repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" />
+	<classPathEntry location="E:/repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" />
 	<context id="DB2Tables" targetRuntime="MyBatis3">
 		<commentGenerator>
 			<property name="suppressDate" value="false" />
@@ -12,7 +12,7 @@
 		</commentGenerator>
 		<!--数据库链接地址账号密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:Mysql://47.93.192.164:3306/url_web_server?characterEncoding=utf8"
+			connectionURL="jdbc:Mysql://47.93.192.164:3306/web_url?characterEncoding=utf8"
 			userId="root" password="root">
 		</jdbcConnection>
 		<javaTypeResolver>
@@ -36,7 +36,7 @@
 		</javaClientGenerator>
 		<!--生成对应表及类名 -->
 
-		<table tableName="t_thrift_urlInfo" domainObjectName="UrlInfo"
+		<table tableName="t_web_urlInfo" domainObjectName="UrlInfo"
 			   enableCountByExample="false" enableUpdateByExample="false"
 			   enableDeleteByExample="false" enableSelectByExample="false"
 			   selectByExampleQueryId="false"></table>

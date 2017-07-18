@@ -1,6 +1,5 @@
 package com.thrift.mybaties.model;
 
-
 import java.util.Date;
 
 public class UrlInfoModel {
@@ -18,10 +17,14 @@ public class UrlInfoModel {
 
     private Date creattime;
 
-    private Date updateime;
+    private Date updatetime;
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getProjectname() {
@@ -72,11 +75,11 @@ public class UrlInfoModel {
         this.creattime = creattime;
     }
 
-    public Date getUpdateime() {
-        return updateime;
+    public Date getUpdatetime() {
+        return updatetime;
     }
 
-    public void setUpdateime(Date updateime) {
-        this.updateime = updateime;
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
     }
 }
