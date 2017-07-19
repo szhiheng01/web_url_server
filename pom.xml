@@ -7,7 +7,7 @@
     <packaging>war</packaging>
     <name>web_url_server</name>
     <groupId>com.creditease</groupId>
-    <artifactId>web_url_server</artifactId>
+    <artifactId>web_url</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

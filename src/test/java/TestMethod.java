@@ -1,5 +1,6 @@
 import com.thrift.mybaties.dao.UrlInfoMapper;
 import com.thrift.mybaties.model.UrlInfoModel;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = {"classpath:ApplicationContext/ApplicationContext.xml"})
 public class TestMethod {
 
+    private static final Logger logger = Logger.getLogger(TestMethod.class);
+
+
     @Autowired
     private UrlInfoMapper operationUrl;
 
@@ -24,7 +28,7 @@ public class TestMethod {
         urlInfoModel.setProjectname("aaaa");
         urlInfoModel.setUrlname("pppp");
         int num = operationUrl.insert(urlInfoModel);
-        System.out.printf("num = " + num );
+        logger.info("num = " + num );
 
 
     }

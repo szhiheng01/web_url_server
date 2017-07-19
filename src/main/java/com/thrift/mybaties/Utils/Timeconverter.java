@@ -17,7 +17,7 @@ public class Timeconverter implements Converter<String,Date>{
     @Override
     public Date convert(String sourceTime) {
         try{
-            Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sourceTime);
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(sourceTime);
             return date;
         } catch (ParseException e) {
             e.printStackTrace();
