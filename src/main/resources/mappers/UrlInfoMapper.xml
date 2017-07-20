@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.thrift.mybaties.dao.UrlInfoMapper">
-  <resultMap id="BaseResultMap" type="com.thrift.mybaties.model.UrlInfoModel">
+<mapper namespace="com.creditease.mybaties.dao.UrlInfoMapper">
+  <resultMap id="BaseResultMap" type="com.creditease.mybaties.model.UrlInfoModel">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="projectName" jdbcType="VARCHAR" property="projectname" />
     <result column="urlName" jdbcType="VARCHAR" property="urlname" />
     <result column="contextType" jdbcType="VARCHAR" property="contexttype" />
     <result column="requestMethod" jdbcType="VARCHAR" property="requestmethod" />
     <result column="transferMethod" jdbcType="VARCHAR" property="transfermethod" />
-    <result column="creatTime" jdbcType="TIMESTAMP" property="creattime" />
-    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="creatTime" jdbcType="VARCHAR" property="creattime" />
+    <result column="updateTime" jdbcType="VARCHAR" property="updatetime" />
   </resultMap>
   <sql id="Base_Column_List">
     id, projectName, urlName, contextType, requestMethod, transferMethod, creatTime, 
@@ -21,19 +21,25 @@
     from t_web_urlinfo
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByUrlName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_web_urlinfo
+    where urlName = #{urlname,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_web_urlInfo
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.thrift.mybaties.model.UrlInfoModel">
+  <insert id="insert" parameterType="com.creditease.mybaties.model.UrlInfoModel">
     insert into t_web_urlinfo (id, projectName, urlName,
       contextType, requestMethod, transferMethod, 
       creatTime, updateTime)
     values (#{id,jdbcType=INTEGER}, #{projectname,jdbcType=VARCHAR}, #{urlname,jdbcType=VARCHAR}, 
       #{contexttype,jdbcType=VARCHAR}, #{requestmethod,jdbcType=VARCHAR}, #{transfermethod,jdbcType=VARCHAR}, 
-      #{creattime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
+      #{creattime,jdbcType=VARCHAR}, #{updatetime,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.thrift.mybaties.model.UrlInfoModel">
+  <insert id="insertSelective" parameterType="com.creditease.mybaties.model.UrlInfoModel">
     insert into t_web_urlinfo
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -81,14 +87,14 @@
         #{transfermethod,jdbcType=VARCHAR},
       </if>
       <if test="creattime != null">
-        #{creattime,jdbcType=TIMESTAMP},
+        #{creattime,jdbcType=VARCHAR},
       </if>
       <if test="updatetime != null">
-        #{updatetime,jdbcType=TIMESTAMP},
+        #{updatetime,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.thrift.mybaties.model.UrlInfoModel">
+  <update id="updateByPrimaryKeySelective" parameterType="com.creditease.mybaties.model.UrlInfoModel">
     update t_web_urlinfo
     <set>
       <if test="projectname != null">
@@ -107,23 +113,23 @@
         transferMethod = #{transfermethod,jdbcType=VARCHAR},
       </if>
       <if test="creattime != null">
-        creatTime = #{creattime,jdbcType=TIMESTAMP},
+        creatTime = #{creattime,jdbcType=VARCHAR},
       </if>
       <if test="updatetime != null">
-        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+        updateTime = #{updatetime,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.thrift.mybaties.model.UrlInfoModel">
+  <update id="updateByPrimaryKey" parameterType="com.creditease.mybaties.model.UrlInfoModel">
     update t_web_urlinfo
     set projectName = #{projectname,jdbcType=VARCHAR},
       urlName = #{urlname,jdbcType=VARCHAR},
       contextType = #{contexttype,jdbcType=VARCHAR},
       requestMethod = #{requestmethod,jdbcType=VARCHAR},
       transferMethod = #{transfermethod,jdbcType=VARCHAR},
-      creatTime = #{creattime,jdbcType=TIMESTAMP},
-      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+      creatTime = #{creattime,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

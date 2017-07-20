@@ -13,8 +13,6 @@
                         http://www.springframework.org/schema/aop
                         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!-- 自动扫描-->
-    <context:component-scan base-package="com.thrift.mybaties.dao"/>
     <!-- 第一种方式：加载一个properties文件 -->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="classpath:ApplicationContext/jdbc.properties"/>
@@ -48,7 +46,7 @@
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.thrift.mybaties.dao"/>
+        <property name="basePackage" value="com.creditease.mybaties.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 
@@ -69,7 +67,7 @@
     <!--切面-->
     <aop:config>
         <aop:advisor advice-ref="txAdvice"
-                     pointcut="execution(* com.thrift.mybaties.service.*.*(..))"/>
+                     pointcut="execution(* com.creditease.mybaties.service.*.*(..))"/>
     </aop:config>
 </beans>
 

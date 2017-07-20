@@ -13,14 +13,17 @@
 
     <import resource="classpath:ApplicationContext/Spring-mybaties.xml"/>
 
+
+    <!-- conversion-service="conversionService"-->
+
     <!--直接驱动-->
-    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+    <mvc:annotation-driven></mvc:annotation-driven>
 
     <!-- 自动扫描  @Controller-->
-    <context:component-scan base-package="com.thrift.mybaties.controller"/>
+    <context:component-scan base-package="com.creditease.mybaties.controller"/>
 
     <!-- 自动扫描-->
-    <context:component-scan base-package="com.thrift.mybaties.service"/>
+    <context:component-scan base-package="com.creditease.mybaties"/>
 
     <!--通用视图解析器-->
     <bean id="viewResolverCommon"
@@ -46,7 +49,7 @@
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="converters">
             <set>
-                <bean class="com.thrift.mybaties.Utils.Timeconverter"/>
+                <bean class="com.creditease.mybaties.Utils.Timeconverter"/>
             </set>
         </property>
     </bean>
