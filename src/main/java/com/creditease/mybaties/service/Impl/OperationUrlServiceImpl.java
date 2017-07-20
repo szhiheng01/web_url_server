@@ -5,8 +5,7 @@ import com.creditease.mybaties.service.OperationUrlService;
 import com.creditease.mybaties.Utils.ResoultInfo;
 import com.creditease.mybaties.Utils.TimeUtils;
 import com.creditease.mybaties.model.UrlInfoModel;
-import com.creditease.rel.aop.RelMessageAop;
-import com.creditease.rel.interceptor.RelMessageInterceptor;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,39 +97,5 @@ public class OperationUrlServiceImpl implements OperationUrlService {
         }
         return resoultInfo;
     }
-
-    public ResoultInfo insertUrl2(UrlInfoModel urlInfoModel) {
-        RelMessageInterceptor.relMessageId.set("1");
-        ResoultInfo resoultInfo = new ResoultInfo();
-        int insertCount = 0;
-        boolean flag = true;
-        try {
-            if (urlInfoModel == null || StringUtils.isBlank(urlInfoModel.getProjectname()) || StringUtils.isBlank(urlInfoModel.getUrlname())) {
-                flag = false;
-            } else {
-                urlInfoModel.setCreattime(TimeUtils.getStringDate());
-                insertCount = urlInfoMapper.insert(urlInfoModel);
-                logger.info("insertCount = " + insertCount);
-                if (insertCount == 0) {
-                    flag = false;
-                }
-            }
-            if (flag) {
-                resoultInfo.setCode(1);
-                resoultInfo.setStatus("true");
-                resoultInfo.setMessage("插入成功～～");
-            } else {
-                resoultInfo.setCode(0);
-                resoultInfo.setStatus("false");
-                resoultInfo.setMessage("插入失败～～");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return resoultInfo;
-    }
-
-
-
 
 }

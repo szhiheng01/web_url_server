@@ -38,22 +38,6 @@ public class TestMethod {
 
     }
 
-
-
-    @Test
-    public void insertTest2() {
-//        OperationUrlServiceImpl operationUrlService = new OperationUrlServiceImpl();
-        UrlInfoModel urlInfoModel = new UrlInfoModel();
-        urlInfoModel.setProjectname("aaaa");
-        urlInfoModel.setUrlname("pppp");
-        urlInfoModel.setCreattime(TimeUtils.getStringDate());
-        ResoultInfo num = operationUrlService.insertUrl2(urlInfoModel);
-        logger.info("num = " + num.toString() );
-
-    }
-
-
-
     @Test
     public void selectTest() {
 
